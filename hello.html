@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar Example</title>
+    <link rel="stylesheet" href="styles.css"
+    <!-- FullCalendar CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css"
+        integrity="sha512-LkNa2uL+41HoTp1TDKugtfeWXG8+9dZ+8+p5Vsm/0U0sH1bCKNTZU+8zRmrjxMj0U7uuwYh7q2qRu0l+rpe5tw=="
+        crossorigin="anonymous"/>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <table id="calendar">
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Calendar days will be dynamically generated here -->
+        </tbody>
+    </table>
+
+    <div id="motivation-section">
+        <img src="https://www.stonebranch.com/integration-hub/media/3c/64/66/1636642258/Stonebranch_SQL_Vendor_Product_Logo.svg" alt="Motivational Image" id="motivation-image">
+        <p id="motivation-message">Ready to take your SQL skills to the next level?</p>
+        <a href="link-to-your-sql-page.html" id="link-button">Explore SQL Mastery</a>
+    </div>
+
+
+    <script>
+        function generateCalendar(year, month) {
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const lastDayIndex = new Date(year, month, daysInMonth).getDay();
+
+            const calendarBody = document.querySelector('#calendar tbody');
+            calendarBody.innerHTML = '';
+
+            let dayCounter = 1;
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+
+                    if (i === 0 && j < firstDayIndex) {
+                        // Empty cells before the first day of the month
+                        cell.textContent = '';
+                    } else if (dayCounter > daysInMonth) {
+                        // Empty cells after the last day of the month
+                        cell.textContent = '';
+                    } else {
+                        // Fill in the calendar with day numbers
+                        cell.textContent = dayCounter;
+
+                        // Highlight today's date
+                        const today = new Date();
+                        if (
+                            year === today.getFullYear() &&
+                            month === today.getMonth() &&
+                            dayCounter === today.getDate()
+                        ) {
+                            cell.classList.add('today');
+                        }
+
+                        // Add click event listener for demonstration purposes
+                        cell.addEventListener('click', function () {
+                            alert(`Clicked on ${year}-${month + 1}-${dayCounter}`);
+                        });
+
+                        dayCounter++;
+                    }
+
+                    row.appendChild(cell);
+                }
+                calendarBody.appendChild(row);
+            }
+        }
+
+        // Get the current date and generate the calendar
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
+
+        generateCalendar(currentYear, currentMonth);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5ECD7;
+}
+
+nav {
+    overflow: hidden;
+    text-align: center;
+}
+
+nav a {
+    float: center;
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ebe2cd;
+    color: black;
+    border-bottom: 2px solid #555;
+    transform: scale(1.1);
+    transition: background-color 0.2s, color 0.2s, border-bottom 0.2s, transform 0.2s;
+}
+
+#calendar {
+    border-collapse: collapse;
+    width: 300px;
+    text-align: right; /* Align the calendar to the right */
+    margin: 200px auto; /* Center the calendar horizontally */
+}
+
+#calendar th,
+#calendar td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#calendar th {
+    background-color: #FF7F50;
+    color: #fff;
+}
+
+#calendar td {
+    cursor: pointer;
+}
+
+#calendar .today {
+    background-color: #ffd299;
+    color: #fff;
+}
+
+#motivation-section {
+	text-align: center;
+	padding: 150px;
+	background-color: #c4bcab;
+	color: #fff;
+}
+
+#motivation-image {
+    max-width: none;
+    max-height: none;
+    margin-bottom: 20px;
+    float: left;
+    width: 400px; /* Increase the width for a larger image */
+    height: 400px; /* Increase the height for a larger image */
+    padding: 100px;
+    margin-right: 20px;
+}
+
+
+#motivation-message {
+	font-size: 1.5em;
+	margin-bottom: 20px;
+}
+
+#link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black; /* Text color */
+    background-color: transparent; /* Transparent background */
+    border: 1.5px solid black; /* Border color and thickness */
+    border-radius: 5px;
+}
+
+
+#link-button:hover {
+	background-color: #ffd299;
+	transform: scale(1.1);
+    transition: background-color 0.2s, color 0.2s, border-bottom 0.2s, transform 0.2s;
+}
