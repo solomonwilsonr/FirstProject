@@ -42,3 +42,26 @@ nav a:hover {
     transform: scale(1.1);
     transition: background-color 0.2s, color 0.2s, border-bottom 0.2s, transform 0.2s;
 }
+
+/* Example media query for screens smaller than 600px */
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    img.logo {
+        max-width: 50%; /* Adjust the max-width for smaller screens */
+        margin: 10px auto; /* Center the logo horizontally with auto margins */
+    }
+
+    nav {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+  
